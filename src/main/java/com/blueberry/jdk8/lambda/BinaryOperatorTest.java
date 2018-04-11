@@ -1,4 +1,4 @@
-package com.blueberry.jdk8;
+package com.blueberry.jdk8.lambda;
 
 import java.util.Comparator;
 import java.util.function.BinaryOperator;

@@ -1,6 +1,5 @@
-package com.blueberry.jdk8;
+package com.blueberry.jdk8.lambda;
 
-import java.awt.event.ItemEvent;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;

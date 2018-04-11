@@ -1,4 +1,4 @@
-package com.blueberry.jdk8;
+package com.blueberry.jdk8.lambda;
 
 import java.util.Arrays;
 import java.util.Collections;

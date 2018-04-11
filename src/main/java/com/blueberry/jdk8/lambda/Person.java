@@ -1,4 +1,4 @@
-package com.blueberry.jdk8;
+package com.blueberry.jdk8.lambda;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

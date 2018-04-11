@@ -1,7 +1,5 @@
-package com.blueberry.jdk8;
+package com.blueberry.jdk8.lambda;
 
-import java.util.Locale;
-import java.util.function.BiFunction;
 import java.util.function.Function;
 
 /**
