@@ -21,4 +21,11 @@ public class Student {
     public static int compareStudentByName(Student s1, Student s2){
         return s1.getName().compareToIgnoreCase(s2.getName());
     }
+    public int compareByScore(Student s){
+        return this.getScore() - s.getScore();
+    }
+
+    public int compareByName(Student s){
+        return this.getName().compareToIgnoreCase(s.getName());
+    }
 }
