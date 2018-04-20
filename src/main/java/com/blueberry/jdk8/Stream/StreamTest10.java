@@ -15,7 +15,7 @@ public class StreamTest10 {
         list.stream().mapToInt(item -> {
             System.out.println(item);
             return item.length();
-        }).filter(length -> length >= 5).findFirst().ifPresent(System.out::println);
+        }).filter(length -> length >= 15).findFirst().ifPresent(System.out::println);
     }
 
 }
