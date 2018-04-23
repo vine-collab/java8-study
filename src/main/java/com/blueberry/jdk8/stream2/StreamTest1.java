@@ -38,6 +38,14 @@ public class StreamTest1 {
 
         Map<Boolean, Map<Boolean, List<Student>>> collect = students.stream().collect(partitioningBy(s -> s.getScore() > 10, partitioningBy(s1 -> s1.getScore() > 15)));
         System.out.println(collect);
+
+        System.out.println("---------------");
+
+        Map<Boolean, Long> collect1 = students.stream().collect(partitioningBy(s -> s.getScore() > 10, counting()));
+        System.out.println(collect1);
+
+        Map<String, Student> collect2 = students.stream().collect(groupingBy(Student::getName, collectingAndThen(minBy(Comparator.comparingInt(Student::getScore)), Optional::get)));
+        System.out.println(collect2);
     }
 
 }
