@@ -37,6 +37,8 @@ public class MySetCollector3<T> implements Collector<T, Set<T>, Map<T, T>> {
     public BinaryOperator<Set<T>> combiner() {
         System.out.println("combiner invoked!");
         return (s1, s2) -> {
+            System.out.println("combiner s1:" + s1);
+            System.out.println("combiner s2:" + s2);
             s1.addAll(s2);
             return s1;
         };
