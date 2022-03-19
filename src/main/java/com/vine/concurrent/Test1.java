@@ -13,7 +13,8 @@ public class Test1 {
 
     private synchronized void increase() throws InterruptedException {
 
-        if(count !=0) {
+        // if(count !=0) {
+        while(count !=0) {
             wait();
         }
         count++;
@@ -24,7 +25,8 @@ public class Test1 {
 
 
     private synchronized void decrease() throws InterruptedException {
-        if(count != 1) {
+        // if (count != 1) {
+        while(count != 1) {
             wait();
         }
         count--;
@@ -56,6 +58,25 @@ public class Test1 {
             }
         }).start();
 
+        new Thread(() -> {
+            for (int i = 0; i < 10; i++) {
+                try {
+                    test.increase();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+
+        new Thread(() -> {
+            for (int i = 0; i < 10; i++) {
+                try {
+                    test.decrease();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
 
