@@ -1,15 +1,18 @@
 # Compiled class file
+.gradle/
 *.class
 
 # Log file
 *.log
+*.bin
+*.lock
 
 # BlueJ files
 *.ctxt
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
-.gradle/
+
 
 # Package Files #
 *.jar
