@@ -1,5 +1,6 @@
 package com.vine.concurrent.lock;
 
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -36,9 +37,24 @@ public class Test1 {
             System.out.println(e);
 
         } finally {
-            lock.unlock();
+//            lock.unlock();
         }
     }
+
+    private void test3() {
+        try {
+            boolean b = lock.tryLock(200, TimeUnit.MILLISECONDS);
+            if (b) {
+                System.out.println("test3 -----");
+            } else {
+                System.out.println("not test3 -----");
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+    }
+
 
     public static void main(String[] args) {
         Test1 test1 = new Test1();
@@ -64,6 +80,18 @@ public class Test1 {
                 }
             }
         }).start();
+
+        new Thread(() -> {
+            for (int i = 0; i < 10; i++) {
+                test1.test3();
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+
 
     }
 
