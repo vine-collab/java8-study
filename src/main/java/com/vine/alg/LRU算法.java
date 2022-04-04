@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * Least Recently Used
+ *
  * @author 阿季
  * @date 2022-04-02 8:55 PM
  */
