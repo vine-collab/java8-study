@@ -31,8 +31,29 @@ public class 斐波拉契数列 {
         long l3 = System.currentTimeMillis();
         System.out.println(l3 - l1);
 
+        System.out.println(f.fibDPUltra(3));
     }
 
+    int fibDPUltra(int n) {
+        if (n == 0) {
+            return 0;
+        }
+        if (n == 1 || n == 2) {
+            return 1;
+        }
+
+        int pre = 1;
+        int pre_pre = 1;
+        int r = 0;
+
+        for (int i = 3; i <= n; i++) {
+            r = pre + pre_pre;
+            pre_pre = pre;
+            pre = r;
+        }
+
+        return r;
+    }
 
     int fibDP(int n) {
         int[] dp = new int[n + 1];
