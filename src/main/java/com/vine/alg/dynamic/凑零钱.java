@@ -14,12 +14,12 @@ public class 凑零钱 {
     public static void main(String[] args) {
         凑零钱 c = new 凑零钱();
         int[] coins = new int[]{1, 2, 3};
-        int i = c.coinChange(coins, 30);
+        int i = c.coinChange(coins, 3);
         System.out.println(i);
 
-        int i1 = c.coinChangeWithMemo(coins, 30, new HashMap<>());
+        int i1 = c.coinChangeWithMemo(coins, 3, new HashMap<>());
         System.out.println(i1);
-        int i2 = c.coinsChangeDp(coins, 30);
+        int i2 = c.coinsChangeDp(coins, 3);
         System.out.println(i2);
     }
 
@@ -98,7 +98,7 @@ public class 凑零钱 {
             }
         }
 
-        return dp[amount] == amount + 1 ? -1 : dp[amount];
+        return dp[amount] == Integer.MAX_VALUE ? -1 : dp[amount];
 
     }
 
