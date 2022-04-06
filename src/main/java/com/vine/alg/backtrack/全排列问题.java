@@ -5,6 +5,7 @@ import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -19,27 +20,26 @@ public class 全排列问题 {
     public static void main(String[] args) {
         List<Integer> list = Arrays.asList(1, 2, 3);
         全排列问题 c = new 全排列问题();
-        c.traverse(list, new ArrayList<>());
+        c.traverse(list, new LinkedList<>());
         System.out.println(JSON.toJSONString(c.result));
 
     }
 
 
-    void traverse(List<Integer> list, List<Integer> track) {
+    void traverse(List<Integer> list, LinkedList<Integer> track) {
         if (track.size() == list.size()) {
-            result.add(track);
+            result.add(new LinkedList<>(track));
             return;
         }
 
 
         for (int i = 0; i < list.size(); i++) {
             if (track.contains(list.get(i))) {
-
                 continue;
             }
             track.add(list.get(i));
             traverse(list, track);
-            track.remove(track.size() - 1);
+            track.removeLast();
 
         }
     }
